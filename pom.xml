@@ -84,7 +84,7 @@
                         <file>src/test/resources/test-suites/flights-reservation.xml</file>
                         <file>src/test/resources/test-suites/vendor-portal.xml</file>
                     </suiteXmlFiles>
-                    <threadCount>2</threadCount>
+                    <threadCount>1</threadCount>
                     <reportsDirectory>target/test-output</reportsDirectory>
                 </configuration>
             </plugin>
@@ -114,13 +114,16 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>${maven.jar.version}</version>
                 <configuration>
-                    <outputDirectory>${package.directory}</outputDirectory>
+                    <outputDirectory>${package.directory}/libs</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>
                         <goals>
                             <goal>test-jar</goal>
                         </goals>
+                        <configuration>
+                            <includes>**/*.class</includes>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
