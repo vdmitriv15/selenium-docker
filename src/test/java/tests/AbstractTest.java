@@ -16,6 +16,7 @@ import org.testng.annotations.*;
 import util.Config;
 import util.Constants;
 
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
