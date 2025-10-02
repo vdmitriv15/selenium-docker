@@ -24,15 +24,15 @@ pipeline {
                         def tag = "${env.BUILD_NUMBER}"
                         bat """
                             docker login -u %DOCKER_HUB_USR% -p %DOCKER_HUB_PSW%
+                            docker tag vdmitriv/selenium:latest docker.io/%DOCKER_HUB_USR%/selenium:latest
                             docker push docker.io/%DOCKER_HUB_USR%/selenium:latest
-                            docker tag selenium docker.io/%DOCKER_HUB_USR%/selenium:latest docker.io/%DOCKER_HUB_USR%/selenium:${tag}
+                            docker tag vdmitriv/selenium:latest docker.io/%DOCKER_HUB_USR%/selenium:${tag}
                             docker push docker.io/%DOCKER_HUB_USR%/selenium:${tag}
                         """
                     }
                 }
             }
         }
-
     }
 
     post {
